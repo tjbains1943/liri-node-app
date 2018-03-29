@@ -24,6 +24,10 @@ inquirer.prompt([
   }
 ]).then(function(data) {
   command = data.question;
+  if (data.input === "") {
+    queryName = undefined;
+    thisMovie = undefined;
+  }
   queryName = data.input;
   thisMovie = data.input;
 
@@ -32,7 +36,6 @@ inquirer.prompt([
 function writeTo(usingThis) {
 fs.appendFile('log.txt',usingThis + "\n", (err) => {
   if (err) throw err;
-  console.log('Data was appended to file!');
 });
 }
  function myTweets() {
@@ -51,11 +54,11 @@ fs.appendFile('log.txt',usingThis + "\n", (err) => {
    }
 function spotifyThis() {
     var spotify = new Spotify(keys.spotify);
-    if (!(queryName === undefined)) {
+    if (!(queryName === "")) {
+      console.log("5")
     } else {
       queryName = process.argv[3];
     }
-     
 if (queryName === undefined) {
     queryName = "the-sign-by-ace-of-base";
 }
@@ -77,7 +80,7 @@ if (queryName === undefined) {
 }
 
 function getMovie() {
-  if (!(thisMovie === undefined)) {
+  if (!(thisMovie === "")) {
   } else {
     thisMovie = process.argv[3];
   }
