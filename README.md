@@ -1,1 +1,3 @@
 # liri-node-app
+
+This app uses the command line terminal to execute APIs. Using node package manager's (npm) inquirer package , the command line prompts the user to pick which API to use. The API choices are Spotify, OMDB, Twitter, and the last option is to run the command inside of a txt file. The txt file contains a command to call one of the APIs and it is followed by the search criteria. Whatever is searched, the results are appended to log.txt. This was done using the fs package on npm. The OMDB API uses the request package from npm. A .env file is used to hide the keys for the APIs. 
